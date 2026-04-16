@@ -1,0 +1,99 @@
+/* --- 1. التنسيقات العامة والأنيميشن (Base) --- */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+html { scroll-behavior: smooth; }
+body { background-color: #1A1F26; margin: 0; padding: 0; overflow-x: hidden; width: 100%; }
+
+/* --- 2. تصميم الـ PC (تصميمك الأصلي 100% بدون أي تغيير) --- */
+@media (min-width: 1025px) {
+    body { position: absolute; width: 700px; }
+    nav { position: fixed; }
+    ul { list-style-type: none; padding: 0px; margin: 0; position: relative; left: 598px; }
+    ul li { display: inline-block; margin: 30px; gap: 15px; position: relative; bottom: 65px; }
+    .bar { background-color: #3B4048; display: block; width: 300px; height: 70px; border-radius: 100px; position: relative; left: 600px; bottom: -10px; filter: blur(2px); }
+    hr { position: relative; left: 50px; top:100px; width: 1400px; opacity: 0.5; color: #7C8794; }
+    .Gre { font-family: 'Roboto', sans-serif; font-weight: 1500; font-size: 150px; color: #DADFE6; position: relative; left: 500px; }
+    .para { color: #9AA2AD; font-family: "Roboto", sans-serif; font-size: 27px; position: relative; left: 400px; bottom: 100px; }
+    .Why { font-family: 'Roboto', sans-serif; font-weight: 1500; font-size: 100px; color: #DADFE6; position: relative; left: 50px; }
+    .wpara { color: #DADFE6; font-family: "Roboto", sans-serif; font-size: 23px; position: relative; left: 30px; bottom: 40px; }
+    .logo { position: relative; bottom: 450px; left: 1000px; border: solid 5px #7C8794; border-radius: 50%; }
+    
+    .sec.is-visible .title { font-family: 'Roboto', sans-serif; font-weight: 1500; font-size: 100px; color: #DADFE6; position: relative; left: 50px; }
+    .sec.is-visible .sk { display: block; position: relative; bottom: 700px; left: 300px; }
+    .po { color: #DADFE6; font-family: "Roboto", sans-serif; font-size: 23px; position: relative; left: 30px; bottom: 40px; }
+    
+    .sec-links.is-visible .t1 { font-family: 'Roboto', sans-serif; font-weight: 1500; font-size: 100px; color: #DADFE6; position: relative; left: 500px; }
+    
+    /* الحجم الأصلي لصورة الروابط في الـ PC */
+    .sec-links.is-visible .sr { 
+        position: relative; 
+        left: 750px; 
+        width: 100px; 
+        height: 130px; 
+    }
+}
+
+/* --- 3. تصميم الـ Mobile (تغيير التموضع فقط مع الحفاظ على الأحجام الأصلية) --- */
+@media (max-width: 1024px) {
+    section { padding: 60px 20px; text-align: center; }
+    nav { position: fixed; width: 100%; top: 0; background: rgba(26, 31, 38, 0.9); z-index: 1000; }
+    .bar { display: none; }
+    ul { display: flex; justify-content: center; gap: 15px; padding: 15px 0; }
+    ul li { margin: 0; bottom: 0; }
+    hr { margin: 80px auto 20px; width: 85%; opacity: 0.3; }
+    .Gre { font-size: 60px; color: #DADFE6; margin-top: 40px; }
+    .para { font-size: 18px; color: #9AA2AD; margin-bottom: 40px; }
+    .Why { font-size: 45px; color: #DADFE6; }
+    .wpara { font-size: 16px; color: #DADFE6; }
+    .logo { width: 180px; margin: 30px auto; border: solid 3px #7C8794; border-radius: 50%; display: block; }
+    
+    .sec.is-visible .title { font-size: 45px; color: #DADFE6; }
+    .po { font-size: 16px; color: #DADFE6; }
+    .sec.is-visible .sk { width: 220px; margin: 30px auto; display: block; }
+
+    .sec-links.is-visible .t1 { font-size: 35px; color: #DADFE6; display: block; }
+    
+    /* الحفاظ على حجم الـ .sr الأصلي في الهاتف أيضاً */
+    .sec-links.is-visible .sr { 
+        width: 100px; 
+        height: 130px; 
+        margin: 20px auto; 
+        display: block; 
+    }
+}
+
+/* --- 4. نفس الأنيميشن الأصلية (Shared Animations) --- */
+.H, .S, .L { text-decoration: none; color: #E6E9EE; font-family: "Roboto", sans-serif; }
+.H:hover, .S:hover, .L:hover { color: #9AA2AD; transform: scale(1.05); }
+.sec .title, .sec .sk, .sec .po span, .sec-links .t1, .sec-links .sr { opacity: 0; }
+
+.line1, .line2 { white-space: nowrap; overflow: hidden; display: inline-block; animation: typing 4s steps(44) forwards; }
+.line1 { animation-delay: 1s; }
+.line2 { animation-delay: 5s; }
+
+.Why, .wpara, .logo { animation: Fade 3s linear; animation-timeline: view(); }
+
+.sec.is-visible .title { animation: Fade2 3s 0.2s 1 normal both, scr 2s 0.2s 1 normal both; }
+.sec.is-visible .sk { animation: Fade2 4s 0.5s 1 normal both, scr 3s 0.5s 1 normal both; }
+.sec.is-visible .po span {
+    display: inline-block; padding: 4px 10px; border-radius: 10px;
+    animation: Fade2 5s 0.8s 1 normal both, scr 4s 0.8s 1 normal both;
+}
+
+.sec-links.is-visible .t1 { 
+    visibility: visible; opacity: 1; display: inline-block; 
+    animation: typing 4s steps(44) 1s forwards; 
+}
+
+/* تأكيد تفعيل الأنيميشن والحجم لـ sr */
+.sec-links.is-visible .sr { 
+    visibility: visible; 
+    animation: Fade 15s forwards; 
+}
+.sr:hover { transform: scale(1.1); }
+
+/* Keyframes الأصلية */
+@keyframes typing { from { width: 0 } to { width: 100% } }
+@keyframes Fade { from { opacity: 0; transform: translateY(1000px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes Fade2 { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scr { from { transform: translateY(1000px); } to { transform: translateY(0); } }
